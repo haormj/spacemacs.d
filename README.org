@@ -1,0 +1,8 @@
+* spacemacs
+** 使用
+#+BEGIN_SRC shell
+# 克隆 spacemacs 的配置包
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+# 克隆当前包
+
+#+END_SRC
