@@ -4,5 +4,5 @@
 # 克隆 spacemacs 的配置包
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 # 克隆当前包
-
+git clone git@github.com:haormj/spacemacs.d.git ~/.spacemacs.d
 #+END_SRC
