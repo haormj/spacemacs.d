@@ -53,7 +53,8 @@ This function should only modify configuration layer settings."
      markdown
      multiple-cursors
      ;; neotree
-     treemacs
+     (treemacs :variables
+               treemacs-use-follow-mode nil)
      org
      (shell :variables
             shell-default-shell 'term
