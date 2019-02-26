@@ -9,4 +9,10 @@ git clone git@github.com:haormj/spacemacs.d.git ~/.spacemacs.d
 ** python
 #+BEGIN_SRC shell
 pip install --upgrade "jedi>=0.9.0" "json-rpc>=1.8.1" "service_factory>=0.1.5"
+pip install python-language-server
+# How to fix spacemacs importmagic and/or epc not found?
+pip install importmagic epc
+# https://emacs.stackexchange.com/questions/46597/anaconda-mode-only-complete-module-variables-get-no-matches-for-assigned-variab
 #+END_SRC
+
+
