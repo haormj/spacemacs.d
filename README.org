@@ -14,6 +14,7 @@ LC_CTYPE=zh_CN.UTF-8 emacs-26.1
 #+END_SRC
 ** python
 #+BEGIN_SRC shell
+# 注意查看 spacemacs 中提示的错误信息,根据错误信息解决问题
 pip install flake8
 # To be able to suppress unused imports easily
 pip install autoflake
