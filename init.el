@@ -35,7 +35,10 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(html
      yaml
-     python
+     (python :variables
+             python-backend 'anaconda
+             python-enable-yapf-format-on-save t
+             python-sort-imports-on-save t)
      (go :variables
          go-format-before-save t
          go-tab-width 4
