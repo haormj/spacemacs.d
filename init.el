@@ -49,7 +49,11 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
+     (helm :variables
+           helm-enable-auto-resize t
+           helm-no-header t
+           helm-position 'top
+           helm-use-fuzzy 'source)
      (auto-completion :variables
                       auto-completion-idle-delay 0.05
                       auto-completion-enable-sort-by-usage t
@@ -83,6 +87,7 @@ This function should only modify configuration layer settings."
      ;; ibuffer
      ;; semantic
      xclipboard
+     json
      )
 
    ;; List of additional packages that will be installed without being
@@ -493,6 +498,8 @@ before packages are loaded."
       (spacemacs//set-monospaced-font "Source Code Pro" "Source Han Sans SC" 14 16))
   (add-hook 'go-mode-hook 'turn-on-fci-mode)
   (setq-default fill-column 120)
+  (when (version<= "9.2" (org-version))
+    (require 'org-tempo))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
