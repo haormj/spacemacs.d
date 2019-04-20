@@ -82,6 +82,7 @@ This function should only modify configuration layer settings."
      ;;        gtags-enable-by-default t)
      ;; ibuffer
      ;; semantic
+     xclipboard
      )
 
    ;; List of additional packages that will be installed without being
@@ -391,7 +392,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-smartparens-strict-mode nil
 
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
-   ;; over any automatically added closing parenthesis, bracket, quote, etc…
+   ;; over any automatically added closing parenthesis, bracket, quote, etc …
    ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
    dotspacemacs-smart-closing-parenthesis nil
 
@@ -488,7 +489,10 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (spacemacs//set-monospaced-font "Source Code Pro" "Source Han Sans SC" 14 16)
+  (if window-system
+      (spacemacs//set-monospaced-font "Source Code Pro" "Source Han Sans SC" 14 16))
+  (add-hook 'go-mode-hook 'turn-on-fci-mode)
+  (setq-default fill-column 120)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
