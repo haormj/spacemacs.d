@@ -57,7 +57,7 @@ This function should only modify configuration layer settings."
      (auto-completion :variables
                       auto-completion-idle-delay 0.05
                       auto-completion-enable-sort-by-usage t
-                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-snippets-in-popup nil
                       auto-completion-enable-help-tooltip t
       )
      chinese
