@@ -72,7 +72,10 @@ This function should only modify configuration layer settings."
                treemacs-use-follow-mode nil)
      (org :variables
           org-enable-org-journal-support t
-          org-enable-hugo-support t)
+          org-want-todo-bindings t
+          org-agenda-files '("~/agenda/gtd.org")
+          org-journal-dir "~/agenda/journal"
+         )
      (shell :variables
             shell-default-shell 'term
             shell-default-height 30
@@ -494,10 +497,13 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;; solve use terminal font error
   (if window-system
       (spacemacs//set-monospaced-font "Source Code Pro" "Source Han Sans SC" 14 16))
+  ;; golang turn on fill column indicator
   (add-hook 'go-mode-hook 'turn-on-fci-mode)
   (setq-default fill-column 120)
+  ;; solve org <s not work
   (when (version<= "9.2" (org-version))
     (require 'org-tempo))
   )
