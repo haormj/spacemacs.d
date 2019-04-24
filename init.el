@@ -506,6 +506,7 @@ before packages are loaded."
   ;; solve org <s not work
   (when (version<= "9.2" (org-version))
     (require 'org-tempo))
+  (add-hook 'org-mode-hook 'turn-on-visual-line-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
