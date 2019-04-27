@@ -73,6 +73,7 @@ This function should only modify configuration layer settings."
      (org :variables
           org-enable-org-journal-support t
           org-want-todo-bindings t
+          org-enable-github-support t
           org-agenda-files '("~/agenda/gtd.org")
           org-journal-dir "~/agenda/journal"
          )
