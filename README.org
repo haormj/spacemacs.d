@@ -23,4 +23,4 @@ pip install importmagic epc
 # https://emacs.stackexchange.com/questions/46597/anaconda-mode-only-complete-module-variables-get-no-matches-for-assigned-variab
 #+END_SRC
 ** 表格
-通过 =, t c= 将 org-mode table 转为 table.el，在新弹出的 buff 的表格中就可以通过 =C-c C-c= 来执行命令  
+通过 ~, t c~ 将 org-mode table 转为 table.el，在新弹出的 buff 的表格中就可以通过 ~C-c C-c~ 来执行命令  
