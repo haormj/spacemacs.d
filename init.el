@@ -508,6 +508,8 @@ before packages are loaded."
   (when (version<= "9.2" (org-version))
     (require 'org-tempo))
   (add-hook 'org-mode-hook 'turn-on-visual-line-mode)
+  ;; replace region with yank
+  (delete-selection-mode t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
