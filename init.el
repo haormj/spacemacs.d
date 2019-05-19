@@ -101,7 +101,8 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                     terminal-here)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -510,6 +511,8 @@ before packages are loaded."
   (add-hook 'org-mode-hook 'turn-on-visual-line-mode)
   ;; replace region with yank
   (delete-selection-mode t)
+  ;; update SPC ' key binding to terminal-here
+  (spacemacs/set-leader-keys "'" 'terminal-here-launch)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
