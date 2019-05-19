@@ -26,4 +26,4 @@ pip install importmagic epc
 | 快捷键      | 说明                                                                                  |
 |-------------+---------------------------------------------------------------------------------------|
 | ~SPC m t c~ | org-mode table 转为 table.el，在新弹出的 buff 的表格中就可以通过 ~C-c C-c~ 来执行命令 |
-| ~SPC '~     | 打开系统终端,修改为 [[https://github.com/davidshepherd7/terminal-here][terminal-here]]                                                     |
+| =SPC '=     | 打开系统终端,修改为 [[https://github.com/davidshepherd7/terminal-here][terminal-here]]                                                     |
