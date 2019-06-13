@@ -40,6 +40,7 @@ This function should only modify configuration layer settings."
              python-enable-yapf-format-on-save t
              python-sort-imports-on-save t)
      (go :variables
+         go-backend 'lsp
          go-format-before-save t
          go-tab-width 4
          godoc-at-point-function 'godoc-gogetdoc
@@ -92,6 +93,7 @@ This function should only modify configuration layer settings."
      ;; semantic
      xclipboard
      json
+     lsp
      )
 
    ;; List of additional packages that will be installed without being
