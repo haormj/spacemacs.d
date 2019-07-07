@@ -515,6 +515,8 @@ before packages are loaded."
   (delete-selection-mode t)
   ;; update SPC ' key binding to terminal-here
   (spacemacs/set-leader-keys "'" 'terminal-here-launch)
+  ;; update fd to jk
+  (setq-default evil-escape-key-sequence "jk")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
