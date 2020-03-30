@@ -95,8 +95,17 @@ This function should only modify configuration layer settings."
      ;; semantic
      xclipboard
      json
-     lsp
+     (lsp :variables
+          lsp-file-watch-ignored t)
+     (c-c++ :variables
+            c-c++-backend 'lsp-ccls
+            c-c++-lsp-enable-semantic-highlight 'rainbow
+            c++-enable-organize-includes-on-save t
+            c-c++-enable-clang-format-on-save t
+            c-c++-enable-google-style t
+            c-c++-enable-google-newline t)
      )
+
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -488,10 +497,10 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  (setq configuration-layer-elpa-archives
-        '(("melpa-cn" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
-          ("org-cn"   . "https://mirrors.ustc.edu.cn/elpa/org/")
-          ("gnu-cn"   . "https://mirrors.ustc.edu.cn/elpa/gnu/")))
+  ;; (setq configuration-layer-elpa-archives
+  ;;      '(("melpa-cn" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
+  ;;        ("org-cn"   . "https://mirrors.ustc.edu.cn/elpa/org/")
+  ;;        ("gnu-cn"   . "https://mirrors.ustc.edu.cn/elpa/gnu/")))
   )
 
 (defun dotspacemacs/user-load ()
@@ -520,7 +529,8 @@ before packages are loaded."
   ;; replace region with yank
   (delete-selection-mode t)
   ;; update SPC ' key binding to terminal-here
-  (spacemacs/set-leader-keys "'" 'terminal-here-launch)
+  ;; (spacemacs/set-leader-keys "'" 'terminal-here-launch)
+  (setq spacemacs-show-trailing-whitespace nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
