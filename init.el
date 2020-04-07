@@ -108,6 +108,7 @@ This function should only modify configuration layer settings."
             c-c++-enable-clang-format-on-save t
             c-c++-enable-google-style t
             c-c++-enable-google-newline t)
+     ietf
      )
 
 
