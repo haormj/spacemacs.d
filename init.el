@@ -77,11 +77,15 @@ This function should only modify configuration layer settings."
           org-enable-org-journal-support t
           org-want-todo-bindings t
           org-enable-github-support t
-          org-agenda-files '("~/agenda/gtd.org")
-          org-journal-dir "~/agenda/journal"
+          org-agenda-files '("/mnt/agenda/gtd.org")
+          org-journal-dir "/mnt/agenda/journal"
+          org-journal-file-format "%Y%m%d"
+          org-journal-date-format "%Y-%m-%d"
+          org-journal-time-format "%Y-%m-%d %H:%M:%S "
+          org-journal-time-prefix ""
          )
      (shell :variables
-            shell-default-shell 'term
+            shell-default-shell 'eshell
             shell-default-height 30
             shell-default-position 'bottom
             shell-default-term-shell "/bin/bash"
@@ -534,6 +538,9 @@ before packages are loaded."
   ;; move text
   (global-set-key (kbd "M-j") 'move-text-down)
   (global-set-key (kbd "M-k") 'move-text-up)
+  (add-hook 'org-journal-mode-hook
+            (lambda()
+              (local-set-key (kbd "C-j") 'org-journal-new-entry)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
