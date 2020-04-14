@@ -103,11 +103,7 @@ This function should only modify configuration layer settings."
           lsp-file-watch-ignored t)
      (c-c++ :variables
             c-c++-backend 'lsp-ccls
-            c-c++-lsp-enable-semantic-highlight 'rainbow
-            c++-enable-organize-includes-on-save t
-            c-c++-enable-clang-format-on-save t
-            c-c++-enable-google-style t
-            c-c++-enable-google-newline t)
+            c-c++-enable-clang-format-on-save t)
      ietf
      )
 
@@ -542,6 +538,11 @@ before packages are loaded."
   (add-hook 'org-journal-mode-hook
             (lambda()
               (local-set-key (kbd "C-j") 'org-journal-new-entry)))
+  ;; eshell use C-c to interrupt process, rather than C-c C-c
+  (add-hook 'eshell-mode-hook '(lambda()
+                                  (let ((map (make-sparse-keymap)))
+                                    (define-key map (kbd "C-c") 'eshell-interrupt-process)
+                                    (set-transient-map map (lambda() t)))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
