@@ -539,10 +539,11 @@ before packages are loaded."
             (lambda()
               (local-set-key (kbd "C-j") 'org-journal-new-entry)))
   ;; eshell use C-c to interrupt process, rather than C-c C-c
-  (add-hook 'eshell-mode-hook '(lambda()
-                                  (let ((map (make-sparse-keymap)))
-                                    (define-key map (kbd "C-c") 'eshell-interrupt-process)
-                                    (set-transient-map map (lambda() t)))))
+  ;; (add-hook 'eshell-mode-hook '(lambda()
+  ;;                                 (let ((map (make-sparse-keymap)))
+  ;;                                   (define-key map (kbd "C-c") 'eshell-interrupt-process)
+  ;;                                   (set-transient-map map (lambda() t)))))
+  (setq eshell-aliases-file "~/.spacemacs.d/.eshell.alias")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
