@@ -33,14 +33,16 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(javascript
+   '(protobuf
+     sql
+     javascript
      octave
      html
      yaml
-     (python :variables
-             python-backend 'anaconda
-             python-enable-yapf-format-on-save t
-             python-sort-imports-on-save t)
+     ;; (python :variables
+     ;;        python-backend 'anaconda
+     ;;        python-enable-yapf-format-on-save t
+     ;;        python-sort-imports-on-save t)
      (go :variables
          go-format-before-save t
          go-tab-width 4
@@ -57,6 +59,7 @@ This function should only modify configuration layer settings."
            helm-no-header t
            helm-position 'top
            helm-use-fuzzy 'source)
+     ;; ivy
      (auto-completion :variables
                       auto-completion-idle-delay 0.05
                       auto-completion-enable-sort-by-usage t
@@ -77,19 +80,14 @@ This function should only modify configuration layer settings."
           org-enable-org-journal-support t
           org-want-todo-bindings t
           org-enable-github-support t
-          org-agenda-files '("/mnt/agenda/gtd.org")
-          org-journal-dir "/mnt/agenda/journal"
-          org-journal-file-format "%Y%m%d"
-          org-journal-date-format "%Y-%m-%d"
-          org-journal-time-format "%Y-%m-%d %H:%M:%S "
+          org-agenda-files '("~/agenda/gtd.org")
+          org-journal-dir "~/agenda/journal"
+          ;; org-journal-file-format "%Y%m%d"
+          ;; org-journal-date-format "%Y-%m-%d"
+          org-journal-time-format "%Y-%m-%d %H:%M:%S"
           org-journal-time-prefix ""
          )
-     (shell :variables
-            shell-default-shell 'eshell
-            shell-default-height 30
-            shell-default-position 'bottom
-            shell-default-term-shell "/bin/bash"
-            )
+     shell
      ;; spell-checking
      syntax-checking
      ;; version-control
@@ -170,7 +168,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    ;; (default 5)
-   dotspacemacs-elpa-timeout 5
+   dotspacemacs-elpa-timeout 30
 
    ;; Set `gc-cons-threshold' and `gc-cons-percentage' when startup finishes.
    ;; This is an advanced option and should not be changed unless you suspect
@@ -498,10 +496,10 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  ;; (setq configuration-layer-elpa-archives
-  ;;      '(("melpa-cn" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
-  ;;        ("org-cn"   . "https://mirrors.ustc.edu.cn/elpa/org/")
-  ;;        ("gnu-cn"   . "https://mirrors.ustc.edu.cn/elpa/gnu/")))
+  (setq configuration-layer-elpa-archives
+       '(("melpa-cn" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
+         ("org-cn"   . "https://mirrors.ustc.edu.cn/elpa/org/")
+         ("gnu-cn"   . "https://mirrors.ustc.edu.cn/elpa/gnu/")))
   )
 
 (defun dotspacemacs/user-load ()
@@ -518,8 +516,8 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; solve use terminal font error
-  (if window-system
-      (spacemacs//set-monospaced-font "Source Code Pro" "Source Han Sans SC" 14 16))
+  ;; (if window-system
+  ;;    (spacemacs//set-monospaced-font "Source Code Pro" "Source Han Sans SC" 14 16))
   ;; golang turn on fill column indicator
   (add-hook 'go-mode-hook 'turn-on-fci-mode)
   (setq-default fill-column 120)
@@ -560,7 +558,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (dap-mode bui org-plus-contrib helm-company helm-c-yasnippet fuzzy company-statistics company-go company auto-yasnippet yasnippet ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio go-guru go-eldoc go-mode flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (protobuf-mode org-plus-contrib helm-company helm-c-yasnippet fuzzy company-statistics company-go company auto-yasnippet yasnippet ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio go-guru go-eldoc go-mode flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
