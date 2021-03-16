@@ -33,7 +33,10 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(protobuf
+   '(
+     (lsp :variables
+          lsp-file-watch-ignored t)
+     protobuf
      sql
      javascript
      octave
@@ -66,7 +69,7 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-snippets-in-popup nil
                       auto-completion-enable-help-tooltip t
       )
-     chinese
+     ;; chinese
      (better-defaults :variables
                       better-defaults-move-to-end-of-code-first t)
      emacs-lisp
@@ -97,8 +100,6 @@ This function should only modify configuration layer settings."
      ;; semantic
      xclipboard
      json
-     (lsp :variables
-          lsp-file-watch-ignored t)
      (c-c++ :variables
             c-c++-backend 'lsp-ccls
             c-c++-enable-clang-format-on-save t)
@@ -519,7 +520,7 @@ before packages are loaded."
   ;; (if window-system
   ;;    (spacemacs//set-monospaced-font "Source Code Pro" "Source Han Sans SC" 14 16))
   ;; golang turn on fill column indicator
-  (add-hook 'go-mode-hook 'turn-on-fci-mode)
+  (add-hook 'go-mode-hook 'display-fill-column-indicator-mode)
   (setq-default fill-column 120)
   ;; solve org <s not work
   (when (version<= "9.2" (org-version))

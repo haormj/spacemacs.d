@@ -1,4 +1,6 @@
 * spacemacs
+** 前提
+emacs 27.1
 ** 使用
 #+BEGIN_SRC shell
 # 克隆 spacemacs 的配置包
@@ -12,18 +14,7 @@ git clone git@github.com:haormj/spacemacs.d.git ~/.spacemacs.d
 # !/bin/bash
 LC_CTYPE=zh_CN.UTF-8 emacs-26.1
 #+END_SRC
-** python
-#+BEGIN_SRC shell
-# 注意查看 spacemacs 中提示的错误信息,根据错误信息解决问题
-pip install flake8
-# To be able to suppress unused imports easily
-pip install autoflake
-# How to fix spacemacs importmagic and/or epc not found?
-pip install importmagic epc
-# https://emacs.stackexchange.com/questions/46597/anaconda-mode-only-complete-module-variables-get-no-matches-for-assigned-variab
-#+END_SRC
 ** 快捷键
 | 快捷键      | 说明                                                                                  |
 |-------------+---------------------------------------------------------------------------------------|
 | ~SPC m t c~ | org-mode table 转为 table.el，在新弹出的 buff 的表格中就可以通过 ~C-c C-c~ 来执行命令 |
-| ~SPC '~     | 打开系统终端,修改为 [[https://github.com/davidshepherd7/terminal-here][terminal-here]]                                                     |
