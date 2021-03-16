@@ -536,6 +536,9 @@ before packages are loaded."
   (add-hook 'org-journal-mode-hook
             (lambda()
               (local-set-key (kbd "C-j") 'org-journal-new-entry)))
+  (add-hook 'treemacs-mode-hook
+            (lambda()
+              (local-set-key (kbd "x p") 'treemacs-remove-project-from-workspace)))
   ;; eshell use C-c to interrupt process, rather than C-c C-c
   ;; (add-hook 'eshell-mode-hook '(lambda()
   ;;                                 (let ((map (make-sparse-keymap)))
